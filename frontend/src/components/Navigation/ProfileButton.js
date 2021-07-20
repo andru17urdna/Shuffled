@@ -39,7 +39,7 @@ function ProfileButton({ user }) {
           <li className='profile-dropdown__li'>Add Cards</li>
           <li className='profile-dropdown__li'>Add Store</li>
           {/*user.email */}
-          <li id='profile-dropdown__log-out' className='profile-dropdown__li' onClick={logout}>Log Out →</li>
+          <li id='profile-dropdown__log-out' className='profile-dropdown__li' onClick={logout}>Log Out</li>
         </ul>
       )}
     </>

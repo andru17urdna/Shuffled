@@ -21,8 +21,8 @@ function LoginForm() {
   };
 
   const demoLogin = () => {
-    const credential = 'Demo-lition'
-    const password = 'password'
+    const credential = 'DemoUser'
+    const password = 'thomas'
     return dispatch(sessionActions.login({ credential, password }))
       .catch(async (res) => {
         const data = await res.json();

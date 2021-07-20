@@ -1,4 +1,29 @@
+@keyframes buttonLoadHome {
+    from{
+        padding-top: 50px;
+    }
+    to {
+        padding-top: 0px;
+    }
+}
 
+@keyframes buttonLoadSign-up {
+    from{
+        padding-top: 150px;
+    }
+    to {
+        padding-top: 0px;
+    }
+}
+
+@keyframes buttonLoadLogin {
+    from{
+        padding-top: 75px;
+    }
+    to {
+        padding-top: 0px;
+    }
+}
 
 #nav__container-div{
     display: grid;
@@ -6,10 +31,16 @@
     grid-template-rows: repeat(5, 20%);
 }
 
+@keyframes dropIn {
+    0%{padding-top: 80px; color: coral}
+    100%{padding-top: 0px; color:white;}
+}
+
 
 #nav__link-profile {
     grid-column-start: 93;
     grid-row: 2 / span 1;
+    animation: dropIn 1.5s;
 }
 
 .profile-dropdown{
@@ -42,11 +73,16 @@
 .profile-dropdown__li:active{
     transition: padding-right;
     padding-right: 30px;
+    color: lightslategray;
+}
+
+#profile-dropdown__log-out:hover::before{
+    content: '?  ';
 }
 
 
 .nav__link{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     color: white;
     text-decoration: none;
     writing-mode: vertical-rl;
@@ -79,14 +115,19 @@
 #nav_sign-up{
     grid-column-start: 93;
     grid-row: 2 / span 1;
+    animation: buttonLoadSign-up 1.5s;
 }
+
+
 
 #nav_home{
     grid-column: 96 / span 1;
     grid-row: 2 / span 1;
+    animation: buttonLoadHome 1.5s;
 }
 
 #nav__log-in-button{
     grid-column-start: 90;
     grid-row: 2 / span 1;
+    animation: buttonLoadLogin 1.5s;
 }

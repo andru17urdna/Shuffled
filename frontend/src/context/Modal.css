@@ -1,3 +1,10 @@
+@keyframes modalGhostMovement {
+     0% {padding-left: 75px; opacity: 0;}
+    100%{padding-left:0px;}
+}
+
+
+
 #modal {
     /* top: 0;
     right: 0;
@@ -6,8 +13,9 @@
     /* display: flex;
     justify-content: center;
     align-items: center; */
-    grid-column: 63;
-    grid-row: 2
+    grid-column: 67;
+    grid-row: 2;
+    animation: modalGhostMovement 1.3s;
 }
 
     #modal-background {
@@ -134,6 +142,13 @@
       color: lightslategray;
     }
 
+@keyframes error_ul-fadeIn {
+    0%{opacity: .3; color: red;}
+    75%{opacity:1; color: red;}
+    90%{color:red}
+    100%{color:white}
+}
+
 #error_ul{
   grid-row: 8 /span end;
   grid-column: 2 /span end;
@@ -145,6 +160,7 @@
   color: white;
   text-shadow: rgb(148, 1, 1) 1px 1px ;
   font-family: arial, sans-serif;
+  animation: error_ul-fadeIn 1.2s;
 }
 
 
@@ -185,7 +201,7 @@
 }
 
 #sign-up__label--button{
- grid-column: 14;
+ grid-column: 13;
  grid-row: 9 /span 2;
  align-self: center;
  justify-self: end;
@@ -211,6 +227,7 @@
   text-shadow: rgb(148, 1 ,1) 1px 1px ;
   font-family: arial, sans-serif;
   list-style: none;
+  animation: error_ul-fadeIn 1.2s;
   /* background-image: url('https://e7.pngegg.com/pngimages/208/512/png-clipart-american-red-cross-international-red-cross-and-red-crescent-movement-the-red-cross-on-blood-white-text.png');
   background-position:top */
 }
