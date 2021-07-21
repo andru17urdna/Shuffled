@@ -2,23 +2,23 @@ import { useSelector,  useDispatch } from 'react-redux';
 import React, { useState, useEffect } from "react";
 import { NavLink, Route, useParams } from 'react-router-dom';
 // import '../../context/Modal.css';
-import {getCards} from '../../store/card.js'
+import {getCheckins} from '../../store/checkin'
 
-function BrowseCards() {
+function Checkins() {
   const dispatch = useDispatch();
 
 //   const {params} = useParams();
 
-const [cards] = useSelector(state => {
-    return Object.values(state.card)
+const [checkins] = useSelector(state => {
+    return Object.values(state.checkins)
   });
 
     useEffect(() => {
-        dispatch(getCards());
+        dispatch(getCheckins());
     }, []);
 
 
-    console.log(cards[0], 'CARDS')
+    console.log(checkins, 'CHECKIN')
 
 //   const handleSubmit = (e) => {
 //     e.preventDefault();
@@ -31,7 +31,7 @@ const [cards] = useSelector(state => {
 //     );
 //   };
 
-if(!cards){
+if(!checkins){
     return <div>Loading...</div>;
   }
 
@@ -39,14 +39,14 @@ if(!cards){
   return (
     <div>
         <h2>wfgsfgsfghatup</h2>
-        <h2>{cards[0].name}</h2>
+        <h2>{checkins[0].comment}</h2>
         <ul>
-            {cards.map(card=>(
-                <li key={card.id}>{card.name}</li>
+            {checkins.map(comment=>(
+                <li key={comment.id}>{comment.comment}</li>
             ))}
         </ul>
     </div>
   );
 }
 
-export default BrowseCards;
+export default Checkins;

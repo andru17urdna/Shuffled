@@ -1,11 +1,16 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import sessionReducer from './session';
-
+import cardReducer from "./card";
+import storeReducer from "./store";
+import checkinReducer from './checkin';
 
 const rootReducer = combineReducers({
   // add reducer functions here
   session: sessionReducer,
+  card: cardReducer,
+  stores: storeReducer,
+  checkins :checkinReducer
 });
 
 let enhancer;

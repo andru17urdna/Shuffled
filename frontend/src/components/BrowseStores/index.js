@@ -2,23 +2,23 @@ import { useSelector,  useDispatch } from 'react-redux';
 import React, { useState, useEffect } from "react";
 import { NavLink, Route, useParams } from 'react-router-dom';
 // import '../../context/Modal.css';
-import {getCards} from '../../store/card.js'
+import {getStores} from '../../store/store'
 
-function BrowseCards() {
+function BrowseStores() {
   const dispatch = useDispatch();
 
 //   const {params} = useParams();
 
-const [cards] = useSelector(state => {
-    return Object.values(state.card)
+const [stores] = useSelector(state => {
+    return Object.values(state.stores)
   });
 
     useEffect(() => {
-        dispatch(getCards());
+        dispatch(getStores());
     }, []);
 
 
-    console.log(cards[0], 'CARDS')
+    console.log(stores, 'stores')
 
 //   const handleSubmit = (e) => {
 //     e.preventDefault();
@@ -31,22 +31,22 @@ const [cards] = useSelector(state => {
 //     );
 //   };
 
-if(!cards){
+if(!stores){
     return <div>Loading...</div>;
   }
 
 
   return (
     <div>
-        <h2>wfgsfgsfghatup</h2>
-        <h2>{cards[0].name}</h2>
+        <h2>Stores</h2>
+        <h2>{stores[0].title}</h2>
         <ul>
-            {cards.map(card=>(
-                <li key={card.id}>{card.name}</li>
+            {stores.map(store=>(
+                <li key={store.id}>{store.title}</li>
             ))}
         </ul>
     </div>
   );
 }
 
-export default BrowseCards;
+export default BrowseStores;
