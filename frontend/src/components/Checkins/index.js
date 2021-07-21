@@ -21,7 +21,7 @@ const checkins = useSelector((state) => {
 const commentData = {
     "userId": 3,
     "deckId": 1,
-    "comment": "These are beautiful. Bought 300 packs. Will never open any of them.",
+    "comment": "I like to eat playing cards",
     "createdAt": "2021-07-19T22:37:54.905Z",
     "updatedAt": "2021-07-19T22:37:54.905Z"
 
@@ -29,10 +29,10 @@ const commentData = {
 }
 
 const editCommentData = {
-    "id": 1,
+    "id": 20,
     "userId": 3,
     "deckId": 1,
-    "comment": "These are beautiful. Bought 300 packs. Will never open any of them.",
+    "comment": "Sometimes I kiss my wife while she is sleeping. <3",
     "createdAt": "2021-07-19T22:37:54.905Z",
     "updatedAt": "2021-07-19T22:37:54.905Z"
 
@@ -72,6 +72,11 @@ if(!checkins){
   console.log(checkins);
   return (
     <div>
+         <div>
+          <button onClick={handlePost}>Post</button>
+          <button onClick={handlePut}>PUT</button>
+          <button onClick={handleDelete}>DESTORY</button>
+        </div>
         <h2>wfgsfgsfghatup</h2>
         <h2>{checkins[0]?.comment}</h2>
         <ul>
@@ -79,11 +84,7 @@ if(!checkins){
                 <li key={comment.id}>{comment.comment}</li>
             ))}
         </ul>
-        <div>
-          <button onClick={handlePost}>Post</button>
-          <button onClick={handlePut}>PUT</button>
-          <button onClick={handleDelete}>DESTORY</button>
-        </div>
+
     </div>
   );
 }
