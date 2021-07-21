@@ -2,23 +2,57 @@ import { useSelector,  useDispatch } from 'react-redux';
 import React, { useState, useEffect } from "react";
 import { NavLink, Route, useParams } from 'react-router-dom';
 // import '../../context/Modal.css';
-import {getCheckins} from '../../store/checkin'
+import {getCheckins, editCheckin, destroyCheckin, createCheckins} from '../../store/checkin'
 
 function Checkins() {
   const dispatch = useDispatch();
 
 //   const {params} = useParams();
 
-const [checkins] = useSelector(state => {
-    return Object.values(state.checkins)
-  });
+const checkins = useSelector((state) => {
+
+  return state.checkins.list.map(checkinId => state.checkins[checkinId]);
+});
 
     useEffect(() => {
         dispatch(getCheckins());
     }, []);
 
+const commentData = {
+    "userId": 3,
+    "deckId": 1,
+    "comment": "These are beautiful. Bought 300 packs. Will never open any of them.",
+    "createdAt": "2021-07-19T22:37:54.905Z",
+    "updatedAt": "2021-07-19T22:37:54.905Z"
 
-   
+
+}
+
+const editCommentData = {
+    "id": 1,
+    "userId": 3,
+    "deckId": 1,
+    "comment": "These are beautiful. Bought 300 packs. Will never open any of them.",
+    "createdAt": "2021-07-19T22:37:54.905Z",
+    "updatedAt": "2021-07-19T22:37:54.905Z"
+
+
+}
+
+
+function handlePut() {
+  dispatch(editCheckin(editCommentData))
+}
+
+function handlePost() {
+  dispatch(createCheckins(commentData))
+}
+
+function handleDelete() {
+  dispatch(destroyCheckin(20))
+}
+
+
 
 //   const handleSubmit = (e) => {
 //     e.preventDefault();
@@ -35,16 +69,21 @@ if(!checkins){
     return <div>Loading...</div>;
   }
 
-
+  console.log(checkins);
   return (
     <div>
         <h2>wfgsfgsfghatup</h2>
-        <h2>{checkins[0].comment}</h2>
+        <h2>{checkins[0]?.comment}</h2>
         <ul>
-            {checkins.map(comment=>(
+            {checkins && checkins.map(comment=>(
                 <li key={comment.id}>{comment.comment}</li>
             ))}
         </ul>
+        <div>
+          <button onClick={handlePost}>Post</button>
+          <button onClick={handlePut}>PUT</button>
+          <button onClick={handleDelete}>DESTORY</button>
+        </div>
     </div>
   );
 }

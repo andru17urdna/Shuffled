@@ -93,8 +93,6 @@ export const getCards = () => async (dispatch) => {
 
 const cardReducer = (state = initialState, action) => {
     switch (action.type) {
-        // case GET_CARDS:
-        //     return {...state, ...action.cards}
             case GET_CARDS: {
                 const allCards = {};
                 action.cards.forEach((card) => {
