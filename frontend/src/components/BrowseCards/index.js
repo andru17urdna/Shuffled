@@ -9,9 +9,10 @@ function BrowseCards() {
 
 //   const {params} = useParams();
 
-const cards = useSelector(state => {
-    return Object.values(state.card)
-  });
+const cards = useSelector((state) => {
+  return state.card.list.map(cardId => state.card[cardId]);
+});
+
 
     useEffect(() => {
         dispatch(getCards());
@@ -74,9 +75,9 @@ if(!cards){
   return (
     <div>
         <h2>wfgsfgsfghatup</h2>
-        <h2>{cards[0].name}</h2>
+        <h2>{cards[0]?.name}</h2>
         <ul>
-            {cards.map(card=>(
+            {cards && cards.map(card=>(
                 <li key={card.id}>{card.name}</li>
             ))}
         </ul>
