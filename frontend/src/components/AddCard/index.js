@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getStores } from '../../store/store';
 import { useHistory } from 'react-router-dom';
 
-const CreatePokemonForm = ({ hideForm }) => {
+const CreateCard = ({ hideForm }) => {
   // const storeNumId = useSelector(state => state.store.id);
   const dispatch = useDispatch();
   const history = useHistory();

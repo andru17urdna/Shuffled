@@ -18,7 +18,7 @@ const [stores] = useSelector(state => {
     }, []);
 
 
-    console.log(stores, 'stores')
+    
 
 //   const handleSubmit = (e) => {
 //     e.preventDefault();

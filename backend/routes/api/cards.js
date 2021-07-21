@@ -13,7 +13,7 @@ const router = express.Router();
 //GET ALL CARDS
 router.get('/', asyncHandler(async function(_req, res){
     const cards = await Card.findAll();
-    return res.json({cards})
+    return res.json(cards)
 }))
 
 // GET ONE CARD

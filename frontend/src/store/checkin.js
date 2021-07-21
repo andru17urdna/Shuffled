@@ -14,7 +14,6 @@ const loadCheckins = (checkins) =>{
 export const getCheckins = () => async (dispatch) => {
     const res = await fetch('/api/checkin');
     const checkin = await res.json();
-    console.log(checkin);
     dispatch(loadCheckins(checkin));
   }
 

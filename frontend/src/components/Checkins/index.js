@@ -18,7 +18,7 @@ const [checkins] = useSelector(state => {
     }, []);
 
 
-    console.log(checkins, 'CHECKIN')
+   
 
 //   const handleSubmit = (e) => {
 //     e.preventDefault();

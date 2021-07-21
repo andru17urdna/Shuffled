@@ -13,7 +13,6 @@ const router = express.Router();
 //GET ALL CHECKINS
 router.get('/', asyncHandler(async function(_req, res){
     const checkins = await Checkin.findAll();
-    console.log('CHECKIN')
     return res.json({checkins})
 }))
 
