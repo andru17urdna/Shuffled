@@ -2,15 +2,22 @@
 
 #browsecard__div{
     display: grid;
-    grid-template-columns:
-  repeat(auto-fit, minmax(250px, 1fr));
-  z-index: 4;
-  color: gold;
+    grid-column: 1 /span 15;
+    grid-row: 1 /span end;
+    /* grid-auto-rows: 500px; */
+    grid-gap: 80px;
+    grid-template-columns: repeat(3, 1fr);
+    z-index: 1;
+    color: gold;
+}
+
+.card_container-border-div{
+    width: 300px;
 }
 
 .card__container-div{
-
     background-color: transparent;
+
 }
 
 .card__h2{
@@ -18,7 +25,7 @@
 }
 
 .card__img{
-    height: 300px;
+    height: 200px;
     width:auto;
 }
 
@@ -27,5 +34,23 @@
 }
 
 .card__description{
+    height: 100px;
     font-size: 20px;
+    overflow-y:auto;
 }
+
+.card__description::-webkit-scrollbar {
+    width: 10px;
+  }
+
+.card__description::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+.card__description::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+.card__description::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }

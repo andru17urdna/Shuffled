@@ -88,20 +88,27 @@ if(!cards){
     return <div>Loading...</div>;
   }
 
+  console.log(cards[0]?.Checkins);
 
   return (
     <div id='browsecard__div'>
-        <ul>
             {cards && cards.map(card=>(
-              <div className='card__container-div'>
-                <h2 className='card__h2'>{card.name}</h2>
-                <img className='card__img' src={card?.imageUrl} alt='playing card image' />
-                <h3 className='card__h3'>{card.Store.title}</h3>
-                <p className='card__description'>{card.description}</p>
+              <div className='card_container-border-div'>
+                <div className='card__container-div'>
+                  <h2 className='card__h2'>{card.name}</h2>
+                  <img className='card__img' src={card?.imageUrl} alt='playing card image' />
+                  <h3 className='card__h3'>{card.Store.title}</h3>
+                  <p className='card__description'>{card.description}</p>
+                  <ul className='card__comments--ul'>
+                    {card.Checkins.map(checkin => (
+                        // console.log(checkin.comment)
+                    <li key={checkin.id} className='card__comment-li'>{checkin.comment}</li>
+                    ))}
+                  </ul>
+                </div>
               </div>
                 // <li key={card.id}>{card.name}</li>
             ))}
-        </ul>
         <div>
           <button onClick={handlePost}>Post</button>
           <button onClick={handlePut}>PUT</button>

@@ -12,7 +12,7 @@ const router = express.Router();
 
 //GET ALL CARDS
 router.get('/', asyncHandler(async function(_req, res){
-    const cards = await Card.findAll({include: ['User' ,"Store"]});
+    const cards = await Card.findAll({include: {all: true}});
     return res.json(cards)
 }))
 
