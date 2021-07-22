@@ -25,10 +25,11 @@
     transform: rotate(-90deg);
     font-size: 250px;
 	top: 300px;
-    left: -100px;
+    left: -20rem;
     margin: auto;
 	align-self: start;
     opacity: .25;
+    white-space: nowrap;
 }
 
 #location__bar--h1-cards{

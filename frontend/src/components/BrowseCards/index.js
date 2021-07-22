@@ -93,9 +93,11 @@ if(!cards){
   return (
     <div id='browsecard__div'>
             {cards && cards.map(card=>(
-              <div className='card_container-border-div'>
                 <div className='card__container-div'>
-                  <h2 className='card__h2'>{card.name}</h2>
+                  <div className='card__container-h2-div'>
+                    <h2 className='card__h2'>{card.name}</h2>
+                  </div>
+                  <div className='card_container-border-div'>
                   <img className='card__img' src={card?.imageUrl} alt='playing card image' />
                   <h3 className='card__h3'>{card.Store.title}</h3>
                   <p className='card__description'>{card.description}</p>

@@ -24,7 +24,7 @@
     z-index: 1;
     display: grid;
     grid-template-columns: repeat(20, 5%) ;
-    grid-template-rows: repeat(10, 10%);
+    grid-template-rows: 10rem repeat(10, 10%);
 }
 
 #nav__container-div{
