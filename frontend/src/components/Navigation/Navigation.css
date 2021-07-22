@@ -26,9 +26,10 @@
 }
 
 #nav__container-div{
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(100, 1%);
-    grid-template-rows: repeat(5, 20%);
+    grid-template-rows: repeat(5, 30px);
 }
 
 @keyframes dropIn {

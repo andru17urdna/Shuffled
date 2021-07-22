@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import { NavLink, Route, useParams } from 'react-router-dom';
 // import '../../context/Modal.css';
 import {createCard, getCards, editCard, destroyCard} from '../../store/card.js'
+import './BrowseCards.css';
+
 
 function BrowseCards() {
   const dispatch = useDispatch();
@@ -53,6 +55,21 @@ const whateveryouwantdata =
 //     );
 //   };
 
+// const sortList = (wines) => {
+
+//   wines.sort((a, b) => {
+//     if (a.name > b.name) {
+//       return 1;
+//     }
+//     if (a.name < b.name) {
+//       return -1;
+//     }
+//     return 0;
+//   });
+
+//   return wines.map(wine => wine.id);
+// };
+
 
 
 function handlePut() {
@@ -73,12 +90,16 @@ if(!cards){
 
 
   return (
-    <div>
-        <h2>wfgsfgsfghatup</h2>
-        <h2>{cards[0]?.name}</h2>
+    <div id='browsecard__div'>
         <ul>
             {cards && cards.map(card=>(
-                <li key={card.id}>{card.name}</li>
+              <div className='card__container-div'>
+                <h2 className='card__h2'>{card.name}</h2>
+                <img className='card__img' src={card?.imageUrl} alt='playing card image' />
+                <h3 className='card__h3'>{card.Store.title}</h3>
+                <p className='card__description'>{card.description}</p>
+              </div>
+                // <li key={card.id}>{card.name}</li>
             ))}
         </ul>
         <div>

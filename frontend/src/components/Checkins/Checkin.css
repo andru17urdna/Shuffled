@@ -1,0 +1,11 @@
+#temp{
+    width: 500px;
+    z-index: 4;
+}
+
+
+.templi{
+    color: white;
+    padding-top: 100px;
+    z-index: 5;
+}

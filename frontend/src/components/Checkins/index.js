@@ -2,7 +2,8 @@ import { useSelector,  useDispatch } from 'react-redux';
 import React, { useState, useEffect } from "react";
 import { NavLink, Route, useParams } from 'react-router-dom';
 // import '../../context/Modal.css';
-import {getCheckins, editCheckin, destroyCheckin, createCheckins} from '../../store/checkin'
+import {getCheckins, editCheckin, destroyCheckin, createCheckins} from '../../store/checkin';
+import './Checkin.css';
 
 function Checkins() {
   const dispatch = useDispatch();
@@ -71,8 +72,8 @@ if(!checkins){
 
   console.log(checkins);
   return (
-    <div>
-         <div>
+    <div id='temp'>
+         <div >
           <button onClick={handlePost}>Post</button>
           <button onClick={handlePut}>PUT</button>
           <button onClick={handleDelete}>DESTORY</button>
@@ -81,7 +82,7 @@ if(!checkins){
         <h2>{checkins[0]?.comment}</h2>
         <ul>
             {checkins && checkins.map(comment=>(
-                <li key={comment.id}>{comment.comment}</li>
+                <li class='templi' key={comment.id}>{comment.comment}</li>
             ))}
         </ul>
 

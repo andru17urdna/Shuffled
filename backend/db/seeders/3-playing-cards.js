@@ -29,7 +29,7 @@ module.exports = {
         name: 'Citizens',
         userId: 8,
         storeId: 5,
-        imageUrl: 'https://rareplayingcards.com/collections/playing-cards/products/citizens',
+        imageUrl: 'https://cdn.shopify.com/s/files/1/0940/8790/products/citizens-1_720x.jpg?v=1568752410',
         description: 'Luxurious and breath-taking are the only words needed to describe the Citizens card deck by Theory11. These playing cards are amazing in every way, from their beautiful illustrations to magnificent colors. Designed by Kevin Cantrell, no detail was overlooked in its creation. The number cards are a nice traditional balance to the otherwise luxurious court cards. ',
         },
         {
