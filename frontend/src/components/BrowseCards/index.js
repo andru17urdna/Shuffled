@@ -94,13 +94,14 @@ if(!cards){
     <div id='browsecard__div'>
             {cards && cards.map(card=>(
                 <div className='card__container-div'>
-                  <div className='card__container-h2-div'>
+                  <NavLink to={`/browsecards/${card.id}`} className='card__container-h2-div'>
                     <h2 className='card__h2'>{card.name}</h2>
-                  </div>
+                  </NavLink>
                   <div className='card_container-border-div'>
                   <img className='card__img' src={card?.imageUrl} alt='playing card image' />
-                  <h3 className='card__h3'>{card.Store.title}</h3>
+                  <h3 className='card__h3'><NavLink className='card__h3--navlink' to={`/browse`}>{card.Store.title}</NavLink></h3>
                   <p className='card__description'>{card.description}</p>
+                  <h4 className='card__comments--header'>Most Recent Comments:</h4>
                   <ul className='card__comments--ul'>
                     {card.Checkins.map(checkin => (
                         // console.log(checkin.comment)
