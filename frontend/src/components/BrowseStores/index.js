@@ -4,6 +4,7 @@ import { NavLink, Route, useParams } from 'react-router-dom';
 // import '../../context/Modal.css';
 import {getStores, createStore, editStore, destroyStore} from '../../store/store';
 import './BrowseStores.css'
+import SlideShow from '../SlideShow/SlideShow';
 
 function BrowseStores() {
   const dispatch = useDispatch();
@@ -69,17 +70,21 @@ if(!stores){
     return <div>Loading...</div>;
   }
 
-  // console.log(stores[0]?.Cards, '<--------------------');
+  console.log(stores[0], '<--------------------');
 
   return (
     <div className='browsestore__div'>
       {stores && stores.map(store => (
         <div key={store.id} className='store__container--div'>
-          <h2 className='store__h2'>{store.title}</h2>
+          <div className='store__header--div'>
+          <h2 className='store__h2-1'>{store.title}</h2>
+          <h2 className='store__h2-2'>{store.title}</h2>
+          </div>
           <div className='store__container--border-div'>
           </div>
-            <h3 className='store__name--h3'>{store.ownerId}</h3>
-            <h3 className='store__address--h3'>{store.address }</h3>
+            <h3 className='store__username--h3'>{store.User.username}</h3>
+              <a className='store__address--h3' href={store.address}>{store.title}</a>
+            <SlideShow cards={store.Cards} />
         </div>
       ))}
     <div>
