@@ -2,7 +2,8 @@ import { useSelector,  useDispatch } from 'react-redux';
 import React, { useState, useEffect } from "react";
 import { NavLink, Route, useParams } from 'react-router-dom';
 // import '../../context/Modal.css';
-import {getStores, createStore, editStore, destroyStore} from '../../store/store'
+import {getStores, createStore, editStore, destroyStore} from '../../store/store';
+import './BrowseStores.css'
 
 function BrowseStores() {
   const dispatch = useDispatch();
@@ -68,21 +69,32 @@ if(!stores){
     return <div>Loading...</div>;
   }
 
+  // console.log(stores[0]?.Cards, '<--------------------');
 
   return (
+    <div className='browsestore__div'>
+      {stores && stores.map(store => (
+        <div key={store.id} className='store__container--div'>
+          <h2 className='store__h2'>{store.title}</h2>
+          <div className='store__container--border-div'>
+          </div>
+            <h3 className='store__name--h3'>{store.ownerId}</h3>
+            <h3 className='store__address--h3'>{store.address }</h3>
+            <div className='store__card--container'>
+                {store.Cards.map(cardPack =>(
+                  <div className='store__card--list'>
+                    <h4 className='store__card--name'>{cardPack.name}</h4>
+                    <NavLink className='store__card-navlink' to={`browsecards/${cardPack.id}`}><img className='store__card--img' src={cardPack?.imageUrl} alt='playing card image'></img></NavLink>
+                  </div>
+              ))}
+            </div>
+        </div>
+      ))}
     <div>
-        <h2>Stores</h2>
-        <h2>{stores[0]?.title}</h2>
-        <ul>
-            {stores && stores.map(store=>(
-                <li key={store.id}>{store.title}</li>
-            ))}
-        </ul>
-        <div>
           <button onClick={handlePost}>Post</button>
           <button onClick={handlePut}>PUT</button>
           <button onClick={handleDelete}>DESTORY</button>
-        </div>
+      </div>
     </div>
   );
 }

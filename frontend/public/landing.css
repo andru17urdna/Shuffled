@@ -27,6 +27,19 @@
     grid-template-rows: 10rem repeat(10, 10%);
 }
 
+body::-webkit-scrollbar {
+    width: 10px;
+}
+body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+body::-webkit-scrollbar-thumb {
+    background: #888;
+}
+body::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 #nav__container-div{
     grid-column: 1 /span end ;
     grid-row: 1 /span 3;

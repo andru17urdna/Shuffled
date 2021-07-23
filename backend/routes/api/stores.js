@@ -11,7 +11,7 @@ const router = express.Router();
 
 // GET ALL STORES
 router.get('/', asyncHandler(async function(_req, res){
-    const stores = await Store.findAll();
+    const stores = await Store.findAll({include: {all: true}});
     return res.json(stores)
 }))
 

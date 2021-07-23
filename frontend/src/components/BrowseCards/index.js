@@ -88,7 +88,7 @@ if(!cards){
     return <div>Loading...</div>;
   }
 
-  console.log(cards[0]?.Checkins);
+  // console.log(cards[0]?.Checkins);
 
   return (
     <div id='browsecard__div'>
