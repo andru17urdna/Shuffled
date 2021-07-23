@@ -11,7 +11,6 @@ function Checkins() {
 //   const {params} = useParams();
 
 const checkins = useSelector((state) => {
-
   return state.checkins.list.map(checkinId => state.checkins[checkinId]);
 });
 

@@ -70,7 +70,7 @@ if(!stores){
     return <div>Loading...</div>;
   }
 
-  console.log(stores[0], '<--------------------');
+  console.log(stores, '<-------stores-----------');
 
   return (
     <div className='browsestore__div'>
@@ -82,7 +82,7 @@ if(!stores){
           </div>
           <div className='store__container--border-div'>
           </div>
-            <h3 className='store__username--h3'>{store.User.username}</h3>
+            <h3 className='store__username--h3'><NavLink to={`userprofile/${store.User.id}`}>{store.User.username}</NavLink></h3>
               <a className='store__address--h3' href={store.address}>{store.title}</a>
             <SlideShow cards={store.Cards} />
         </div>

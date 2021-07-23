@@ -8,7 +8,7 @@ function SlideShow({ cards }){
 
 
     useEffect(() => {
-        console.log(cards, '<<<<<<<<<+++++++Cards')
+        // console.log(cards, '<<<<<<<<<+++++++Cards')
         // const img = ReactDOM.findDOMNode('image__navlink');
         const images = document.getElementsByClassName('image__navlink');
         // setSlideIdx((prevState) => prevState + 1 )

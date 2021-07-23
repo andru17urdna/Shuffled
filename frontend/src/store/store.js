@@ -7,6 +7,7 @@ const REMOVE_STORE = 'stores/removecard'
 
 
 
+
 const loadStores = (stores) =>{
     return{
         type: GET_STORES,
@@ -95,11 +96,9 @@ const storeReducer = (state = initialState, action) => {
     switch (action.type) {
             case GET_STORES: {
                 const allStores = {};
-                console.log(action.stores)
                 action.stores.forEach((store) => {
                   allStores[store.id] = store;
                 });
-                console.log(allStores)
                 return {
                   ...allStores,
                   ...state,

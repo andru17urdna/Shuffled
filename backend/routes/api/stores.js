@@ -13,7 +13,7 @@ const router = express.Router();
 router.get('/', asyncHandler(async function(_req, res){
     const stores = await Store.findAll({include: {all: true}});
     return res.json(stores)
-}))
+}));
 
 //CREATE NEW STORES
 router.post('/',

@@ -1,10 +1,10 @@
 import { useSelector,  useDispatch } from 'react-redux';
 import React, { useState, useEffect } from "react";
-import { NavLink, Route, useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 // import '../../context/Modal.css';
-import {createCard, getCards, editCard, destroyCard} from '../../store/card.js'
-import './BrowseCards.css';
 
+import {createCard, getCards, editCard, getOneCard, destroyCard} from '../../store/card.js'
+import './BrowseCards.css';
 
 function BrowseCards() {
   const dispatch = useDispatch();
@@ -22,7 +22,6 @@ const cards = useSelector((state) => {
 
   const cardData =
   {
-
     "userId": 2,
     "storeId": 1,
     "name": "NOTTHOMAASSSSS",
@@ -70,6 +69,9 @@ const whateveryouwantdata =
 //   return wines.map(wine => wine.id);
 // };
 
+function handleGet() {
+  dispatch(getOneCard(3))
+}
 
 
 function handlePut() {
@@ -88,7 +90,7 @@ if(!cards){
     return <div>Loading...</div>;
   }
 
-  // console.log(cards[0]?.Checkins);
+  console.log(cards[0]);
 
   return (
     <div id='browsecard__div'>
@@ -99,12 +101,11 @@ if(!cards){
                   </NavLink>
                   <div className='card_container-border-div'>
                   <img className='card__img' src={card?.imageUrl} alt='playing card image' />
-                  <h3 className='card__h3'><NavLink className='card__h3--navlink' to={`/browse`}>{card.Store.title}</NavLink></h3>
+                  <h3 className='card__h3'><NavLink className='card__h3--navlink' to={`/browsestores`}>{card.Store.title}</NavLink></h3>
                   <p className='card__description'>{card.description}</p>
                   <h4 className='card__comments--header'>Most Recent Comments:</h4>
                   <ul className='card__comments--ul'>
-                    {card.Checkins.map(checkin => (
-                        // console.log(checkin.comment)
+                    {card.Checkins && card.Checkins.map(checkin => (
                     <li key={checkin.id} className='card__comment-li'>{checkin.comment}</li>
                     ))}
                   </ul>
@@ -116,6 +117,7 @@ if(!cards){
           <button onClick={handlePost}>Post</button>
           <button onClick={handlePut}>PUT</button>
           <button onClick={handleDelete}>DESTORY</button>
+          <button onClick={handleGet}>GetCard</button>
         </div>
     </div>
   );

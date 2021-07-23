@@ -18,16 +18,18 @@ router.get('/', asyncHandler(async function(_req, res){
 
 // GET ONE CARD
 router.get('/:id', asyncHandler(async function(req, res) {
-    const oneCard = await Card.findByPk(req.params.id);
+    console.log('hit the back end', req.params)
+    const oneCard = await Card.findByPk(req.params.id, {include: {all: true}});
     return res.json(oneCard);
   }));
 
 //CREATE NEW CARD
 router.post('/',
-    playingCardValidations.validateCreate,
+    // playingCardValidations.validateCreate,
     asyncHandler(async function(req, res) {
         const cards = await Card.create(req.body);
-        return res.json(cards);
+        const correctedCard = await Card.findByPk(cards.id, {include: {all: true}})
+        return res.json(correctedCard);
     })
 );
 

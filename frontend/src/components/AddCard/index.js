@@ -1,56 +1,77 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getStores } from '../../store/store';
+import { createCard } from '../../store/card';
 import { useHistory } from 'react-router-dom';
 
-const CreateCard = ({ hideForm }) => {
-  // const storeNumId = useSelector(state => state.store.id);
+const CreateCardForm = ({ hideForm }) => {
+
+  // const allStoresNames = useSelector(state => state.stores);
   const dispatch = useDispatch();
   const history = useHistory();
-  const [userId, setUserId] = useState();
-  const [storeId, setStoreId] = useState();
+
+  const stores = useSelector((state) => {
+    return state.stores.list.map(storeId => state.stores[storeId]);
+  });
+
+
+
+  useEffect(() => {
+    dispatch(getStores());
+}, []);
+
+
+
+  // console.log(stores, 'STORES');
+
+
+  const [storeId, setStoreId] = useState(stores[0]?.title);
   const [name, setName] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   const [description, setDescription] = useState('');
-//   const [type, setType] = useState(pokeTypes[0]);
+  const [errors, setErrors] = useState([]);
 
 
-  const updateUserId = (e) => setUserId(e.target.value);
-  const updateStoreId = (e) => setStoreId(e.target.value);
+
+
+  const updateStoreName = (e) => setStoreId(+e.target.value);
   const updateName = (e) => setName(e.target.value);
   const updateImageUrl = (e) => setImageUrl(e.target.value);
   const updateDescription = (e) => setDescription(e.target.value);
 
+  const sessionUser = useSelector((state) => state.session.user)
+    // setUserId(sessionUser.id);
 
-  useEffect(() => {
-    dispatch(getPokemonTypes());
-  }, [dispatch]);
+// console.log(sessionUser.id, 'OJWOGREOWHNWOGHNGOHEGWOIUGEWH')
 
-  useEffect(() => {
-    if (pokeTypes.length && !type) {
-      setType(pokeTypes[0]);
-    }
-  }, [pokeTypes, storeId]);
+
+
+  // useEffect(() => {
+  //   if (stores.length && !storeName) {
+  //     setStoreId(stores.title[0]);
+  //   }
+  // }, [stores, storeName]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // const payload = {
-    //   no,
-    //   attack,
-    //   defense,
-    //   imageUrl,
-    //   name,
-    //   type,
-    //   move1,
-    //   move2,
-    //   moves: [move1, move2],
-    // };
-
-    let createdCardDeck;
+    const createdCardDeck = {
+      userId :sessionUser.id,
+      storeId,
+      name,
+      imageUrl,
+      description
+    };
+      console.log(createdCardDeck)
     if (createdCardDeck) {
-      history.push(`/browsecards/${createdCardDeck.id}`);
-      hideForm();
+      const cardInfo = await dispatch(createCard(createdCardDeck))
+        if (cardInfo && cardInfo.errors) {
+          setErrors(cardInfo.errors)
+        } else {
+          // ${createdCardDeck.id}
+          history.push(`/browsecards`);
+          // hideForm();
+        }
     }
   };
 
@@ -62,6 +83,11 @@ const CreateCard = ({ hideForm }) => {
   return (
     <section className="new-form-holder centered middled">
       <form onSubmit={handleSubmit}>
+      <div id='error_ul-container-div'>
+        <ul id='signup__errors'>
+          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+        </ul>
+      </div>
         <input
           type="text"
           placeholder="Name"
@@ -69,9 +95,9 @@ const CreateCard = ({ hideForm }) => {
           required
           value={name}
           onChange={updateName} />
-        <select onChange={updateStoreId}>
-          {Store.map(store =>
-            <option key={store.id}>{store.name}</option>
+        <select onChange={updateStoreName}>
+          {stores && stores.map(store =>
+            <option value={store.id} key={store.id}>{store.title}</option>
           )}
         </select>
         <input
@@ -88,11 +114,11 @@ const CreateCard = ({ hideForm }) => {
           required
           value={imageUrl}
           onChange={updateImageUrl} />
-        <button type="submit">Create new Pokemon</button>
+        <button type="submit" onClick={handleSubmit}>Create new Card</button>
         <button type="button" onClick={handleCancelClick}>Cancel</button>
       </form>
     </section>
   );
 };
 
-export default CreatePokemonForm;
+export default CreateCardForm;

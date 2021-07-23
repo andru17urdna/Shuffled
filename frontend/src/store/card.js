@@ -3,9 +3,17 @@ import { csrfFetch } from './csrf'
 //ACTION
 const GET_CARDS = 'playingcards/getcards';
 const ADD_ONE = 'playingcards/addone';
-const REMOVE_CARD = 'playingcards/removecard'
+const REMOVE_CARD = 'playingcards/removecard';
+const GET_ONE = 'playingcards/:id';
 
-const loadCards = (cards) =>{
+const getCard = (card) => {
+    return {
+      type: GET_ONE,
+      card
+    }
+}
+
+const loadCards = (cards) => {
     return {
         type: GET_CARDS,
         cards
@@ -62,7 +70,6 @@ export const createCard = (payload) => async (dispatch) => {
     });
 
     const card = await res.json();
-
     if (res.ok) {
         dispatch(addCard(card));
     }
@@ -76,6 +83,12 @@ export const getCards = () => async (dispatch) => {
     const cards = await res.json();
     dispatch(loadCards(cards));
   }
+
+export const getOneCard = (cardId) => async(dispatch) => {
+  const res = await fetch(`/api/playingcards/${cardId}`);
+  const card = await res.json();
+  dispatch(getCard(card))
+}
 
 
 //cards is an array of objects =P
@@ -103,6 +116,13 @@ const cardReducer = (state = initialState, action) => {
                   ...state,
                   list: sortList(action.cards)
                 };
+              }
+              case GET_ONE: {
+                console.log(action.card)
+                return {
+                  ...action.card,
+                  ...state
+                }
               }
               case ADD_ONE: {
                 if (!state[action.card.id]) {
