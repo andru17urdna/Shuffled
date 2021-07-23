@@ -80,14 +80,6 @@ if(!stores){
           </div>
             <h3 className='store__name--h3'>{store.ownerId}</h3>
             <h3 className='store__address--h3'>{store.address }</h3>
-            <div className='store__card--container'>
-                {store.Cards.map(cardPack =>(
-                  <div className='store__card--list'>
-                    <h4 className='store__card--name'>{cardPack.name}</h4>
-                    <NavLink className='store__card-navlink' to={`browsecards/${cardPack.id}`}><img className='store__card--img' src={cardPack?.imageUrl} alt='playing card image'></img></NavLink>
-                  </div>
-              ))}
-            </div>
         </div>
       ))}
     <div>
