@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { getStores } from '../../store/store';
 import { getCheckins } from '../../store/checkin';
 import {createCard, getCards, editCard, getOneCard, destroyCard} from '../../store/card.js'
+import CreateCheckinForm from '../Checkins/AddCheckin';
 import './BrowseCards.css';
 
 function BrowseCards() {
@@ -25,6 +26,7 @@ const cards = useSelector((state) => {
 
 
 
+
 //   const handleSubmit = (e) => {
 //     e.preventDefault();
 //     setErrors([]);
@@ -42,7 +44,6 @@ if(!cards){
     return <div>Loading...</div>;
   }
 
-  console.log(cards[0]);
 
   return (
     <div id='browsecard__div'>
@@ -62,8 +63,10 @@ if(!cards){
                     ))}
                   </ul>
                 </div>
+                <div>
+                  <CreateCheckinForm cardId={card.id} />
+                </div>
               </div>
-                // <li key={card.id}>{card.name}</li>
             ))}
 
     </div>

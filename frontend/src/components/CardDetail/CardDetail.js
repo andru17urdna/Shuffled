@@ -15,7 +15,7 @@ const CardDetail = () => {
 
 
     useEffect(()=>{
-        if (sessionUser.id === card.userId) {
+        if (sessionUser?.id === card?.userId) {
             setShowCreationButtons(true);
         }
     })

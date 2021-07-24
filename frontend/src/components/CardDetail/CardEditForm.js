@@ -36,9 +36,7 @@ const updateCard = async (e) => {
         if (cardInfo && cardInfo.errors) {
           setErrors(cardInfo.errors)
         } else {
-          // ${createdCardDeck.id}
           history.push(`/browsecards`);
-          // hideForm();
         }
     }
   };
@@ -49,10 +47,6 @@ function deleteCard() {
     history.push(`/browsecards`);
 }
 
-
-  const handleCancelClick = (e) => {
-    e.preventDefault();
-  };
 
   return (
     <section className="new-form-holder centered middled">
@@ -90,9 +84,6 @@ function deleteCard() {
         </div>
         <div className='creator__delete--div'>
             <button onClick={deleteCard} className='Creator__delete--div'>Delete</button>
-        </div>
-        <div>
-            <button type="button" onClick={handleCancelClick}>Cancel</button>
         </div>
     </div>
     </section>
