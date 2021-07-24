@@ -43,7 +43,7 @@ export const editCard = (payload) => async (dispatch) => {
     });
 
     const card = await res.json();
-
+    console.log(card);
     if (res.ok) {
         dispatch(addCard(card));
     }

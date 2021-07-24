@@ -2,10 +2,21 @@ import { useSelector,  useDispatch } from 'react-redux';
 import React, { useState, useEffect } from "react";
 import { NavLink, Route, useParams } from 'react-router-dom';
 import shuffledLogo from '../Landing Page/SHUFFLED outline.png';
+import { getCards } from '../../store/card';
+import { getStores } from '../../store/store';
+import { getCheckins } from '../../store/checkin';
+
 import './LandingPage.css';
 
 function LandingPage() {
+    const dispatch = useDispatch();
 
+    useEffect(() => {
+        dispatch(getCards());
+        dispatch(getStores());
+        dispatch(getCheckins());
+    }, []);
+    
 
 
     return(

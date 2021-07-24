@@ -23,13 +23,14 @@ const updateCard = async (e) => {
     e.preventDefault();
 
     const editCardDeck = {
+        id: card.id,
       userId :sessionUser.id,
       storeId :card.storeId,
       name,
       imageUrl,
       description
     };
-      console.log(editCardDeck)
+      console.log(card, 'EDITED CARD')
     if (editCardDeck) {
       const cardInfo = await dispatch(editCard(editCardDeck))
         if (cardInfo && cardInfo.errors) {
@@ -45,6 +46,7 @@ const updateCard = async (e) => {
 
 function deleteCard() {
     dispatch(destroyCard(card.id))
+    history.push(`/browsecards`);
 }
 
 
@@ -62,9 +64,9 @@ function deleteCard() {
       </div>
         <input
           type="text"
-          placeholder={card.name}
           min="4"
           required
+          placeholder={card.name}
           value={name}
           onChange={updateName} />
         <input
@@ -72,10 +74,12 @@ function deleteCard() {
           min="0"
           max="500"
           required
-          value={card.description}
+          placeholder="Description"
+          value={description}
           onChange={updateDescription} />
         <input
           type="text"
+          placeholder='Image'
           required
           value={imageUrl}
           onChange={updateImageUrl} />
