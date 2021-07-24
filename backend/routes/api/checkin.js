@@ -16,10 +16,13 @@ router.get('/', asyncHandler(async function(_req, res){
     return res.json(checkins)
 }))
 
-// GET ONE CHECKIN
+// GET All CHECKINS WHERE CARD ID
 router.get('/:id', asyncHandler(async function(req, res) {
-    const oneCheckin = await Checkin.findByPk(req.params.id);
-    return res.json(oneCheckin);
+    console.log(req.params, "REQ PARAMS")
+    const oneDeckCheckin = await Checkin.findAll({where: {
+        deckId: req.params.id
+    }});
+    return res.json(oneDeckCheckin);
   }));
 
 //CREATE NEW CHECKIN

@@ -28,15 +28,15 @@ app.use(express.json());
     }));
 
     // Set the _csrf token and create req.csrfToken method
-    // app.use(
-    //     csurf({
-    //     cookie: {
-    //         secure: isProduction,
-    //         sameSite: isProduction && "Lax",
-    //         httpOnly: true,
-    //     },
-    //     })
-    // );
+    app.use(
+        csurf({
+        cookie: {
+            secure: isProduction,
+            sameSite: isProduction && "Lax",
+            httpOnly: true,
+        },
+        })
+    );
 
 
 app.use(routes); // Connect all the routes

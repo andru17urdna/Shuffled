@@ -4,12 +4,20 @@ import { csrfFetch } from './csrf'
 const GET_CHECKINS = 'checkin/';
 const ADD_ONE = 'checkin/addone';
 const REMOVE_CHECKIN = 'checkin/removecheckin';
+const GET_DECK_CHECKINS ='checkin/:id'
 
 const loadCheckins = (checkins) =>{
     return {
         type: GET_CHECKINS,
         checkins
     }
+}
+
+const loadOneDeckCheckins = (deckId) => {
+  return {
+    type: GET_DECK_CHECKINS,
+    deckId
+  }
 }
 
 const addCheckin = (checkin) => {
@@ -37,6 +45,11 @@ export const getCheckins = () => async (dispatch) => {
     dispatch(loadCheckins(checkin));
   }
 
+export const getOneDeckCheckins = (deckId) => async (dispatch) => {
+  const res = await fetch(`/api/checkin/${deckId}`)
+  const deckCheckins = await res.json();
+  dispatch(loadOneDeckCheckins(deckCheckins))
+}
 
 
 export const editCheckin = (payload) => async (dispatch) => {
@@ -67,6 +80,7 @@ export const editCheckin = (payload) => async (dispatch) => {
 
 
 export const createCheckins = (payload) => async (dispatch) => {
+  console.log(payload,"PAYLOAD")
     const res = await csrfFetch('/api/checkin', {
         method: 'POST',
         body: JSON.stringify(payload)
@@ -97,16 +111,24 @@ const checkinReducer = (state = initialState, action) => {
     switch (action.type) {
       case GET_CHECKINS: {
         const allCheckins = {};
-        console.log(action.checkins)
         action.checkins.forEach((checkin) => {
           allCheckins[checkin.id] = checkin;
         });
-        console.log(allCheckins)
         return {
           ...allCheckins,
           ...state,
           list: sortList(action.checkins)
         };
+      }
+      case GET_DECK_CHECKINS: {
+        const deckComments = {};
+        action.deckId.forEach((comment) => {
+          deckComments[comment.id] = comment;
+        });
+        return {
+          ...deckComments,
+          ...state
+        }
       }
         case ADD_ONE: {
             if (!state[action.checkin.id]) {

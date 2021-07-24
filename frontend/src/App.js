@@ -11,13 +11,14 @@ import Checkins from "./components/Checkins";
 import LandingPage from "./components/Landing Page/LandingPage";
 import CreateCardForm from "./components/AddCard";
 import CardDetail from "./components/CardDetail/CardDetail";
+import CreateCheckinForm from "./components/Checkins/AddCheckin";
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   const [location, setLocation] = useState('CARDS');
 
-  
+
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
@@ -25,7 +26,6 @@ function App() {
 
   return (
     <>
-      <LocationBar location={location} />
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
@@ -47,7 +47,7 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path='/check-ins'>
+          <Route path='/check-ins/:cardId'>
             <Checkins />
           </Route>
         </Switch>

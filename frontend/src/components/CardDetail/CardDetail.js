@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch} from 'react-redux';
 import { useParams, NavLink } from 'react-router-dom';
 import { createCard, getOneCard, editCard, destroyCard } from '../../store/card';
+import CreateCheckinForm from '../Checkins/AddCheckin';
 import EditCardForm from '../CardDetail/CardEditForm.js';
+import { getCheckins } from '../../store/checkin';
 import './CardDetail.css'
+
 
 
 
@@ -21,60 +24,60 @@ const CardDetail = () => {
     })
 
 
-    // sesssiionUser.id === card.userId
+
 
 
 
     const card = useSelector((state)=> {
         return state.card[+cardId.id]
     });
+
     const sessionUser = useSelector(state => {
 
         return state.session.user
     });
 
-    console.log(sessionUser,"SESSIONUSERE HERE")
-      console.log(card,'CARD HERE');
-
-
-
-
-
 
     return (
-        <div className='background__container-div'>
-            <h2>{card?.name}</h2>
-            <NavLink to='/browsecards'>SOMETHING</NavLink>
-            <div>
-                <img src={card?.imageUrl}></img>
+        <div className='background__container--div'>
+            <div className='carddetail__container--div'>
+                <div className='carddetail__border--div'></div>
+            <div className='carddetail__h2--animation-div'>
+                <h2 className='carddetail__h2--animation'>{card?.name}</h2>
             </div>
-            <div>
-                <h3>{card.Store?.title}</h3>
+            <h2 className='carddetail__h2'>{card?.name}</h2>
+            <div className='carddetail__img--div'>
+                <img className='carddetail__img' src={card?.imageUrl}></img>
             </div>
-            <div>
-                <h2>{card.Store?.address}</h2>
+            <div className='carddetail__store-h3--div'>
+                <a className='carddetail__h3--a' href={card.Store?.address}>
+                    <h3 className='carddetail__h3'>{card.Store?.title}</h3>
+                </a>
             </div>
-            <div>
-                <h3>{card.User?.username}</h3>
+            <div className='carddetail__h3-username--div'>
+                <h3 className='carddetail__h3-username'>{card.User?.username}</h3>
             </div>
-            <div>
-            <p>{card.description}</p>
+            <div className='carddetail__p-description--div'>
+            <p className='carddetail__p'>{card.description}</p>
             </div>
-            <div>
-                <div>
-                    <ul>
-                    {card?.Checkins && card?.Checkins.map(checkin => (
-                            <li key={checkin?.id} className='card__comment-li'>{checkin?.comment}</li>
-                            ))}
-                    </ul>
+                <div className='carddetail__ul--div'>
+                    <div className='carddetail__ul' >
+                        {card?.Checkins && card?.Checkins.map(checkin => (
+                                <p className='carddetail__li' key={checkin?.id} className='card__comment-li'>{checkin?.comment}</p>
+                                ))}
+                    </div>
                 </div>
-            </div>
+                    <div className="addcomment-button">
+                        <NavLink to={`add-check-ins/${card.id}`}></NavLink>
+                    </div>
         {showCreationButtons && (
-            <div>
+            <div className='carddetail__editcardform--div'>
                 <EditCardForm card={card}/>
             </div>
             )}
             <div>
+
+            </div>
             </div>
         </div>
     )

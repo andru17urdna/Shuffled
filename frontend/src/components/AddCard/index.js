@@ -4,7 +4,8 @@ import { getStores } from '../../store/store';
 import { createCard } from '../../store/card';
 import { useHistory } from 'react-router-dom';
 
-const CreateCardForm = ({ hideForm }) => {
+
+const CreateCardForm = () => {
 
   // const allStoresNames = useSelector(state => state.stores);
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const CreateCardForm = ({ hideForm }) => {
   useEffect(() => {
     dispatch(getStores());
 }, []);
+
 
 
 
@@ -70,14 +72,12 @@ const CreateCardForm = ({ hideForm }) => {
         } else {
           // ${createdCardDeck.id}
           history.push(`/browsecards`);
-          // hideForm();
         }
     }
   };
 
   const handleCancelClick = (e) => {
     e.preventDefault();
-    hideForm();
   };
 
   return (

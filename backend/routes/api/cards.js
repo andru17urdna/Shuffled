@@ -18,7 +18,6 @@ router.get('/', asyncHandler(async function(_req, res){
 
 // GET ONE CARD
 router.get('/:id', asyncHandler(async function(req, res) {
-    console.log('hit the back end', req.params)
     const oneCard = await Card.findByPk(req.params.id, {include: {all: true}});
     return res.json(oneCard);
   }));
