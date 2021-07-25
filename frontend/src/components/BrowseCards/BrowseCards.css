@@ -1,4 +1,4 @@
-#location__bar--Container{
+.location__bar--Container{
     height: 100%;
     width: 50px;
     /* grid-column:2 ;
@@ -16,7 +16,7 @@
 }
 
 
-#location__bar--h1{
+.location__bar--h1{
     position: fixed;
     transform: rotate(-90deg);
     font-size: 250px;
@@ -28,16 +28,6 @@
     white-space: nowrap;
 }
 
-#location__bar--h1-cards{
-    position: fixed;
-    transform: rotate(-90deg);
-    font-size: 250px;
-	top: 300px;
-    left: -100px;
-    margin: auto;
-	align-self: start;
-    opacity: .25;
-}
 
 .background--div{
     background-image: url('https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1234&q=80');

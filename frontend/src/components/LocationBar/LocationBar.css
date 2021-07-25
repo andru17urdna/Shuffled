@@ -16,7 +16,7 @@
     grid-template-columns: repeat(4,25%);
     grid-template-rows: 100%; */
     height: 100%;
-
+    z-index: 20;
 }
 
 
@@ -32,13 +32,31 @@
     white-space: nowrap;
 }
 
-#location__bar--h1-cards{
+#location__bar--Container-card{
+    height: 100%;
+    width: 50px;
+    /* grid-column:2 ;
+    grid-row: 1/ span end; */
+    border-top: solid transparent 1px;
+    border-bottom: solid transparent 1px;
+    font-family: Apex;
+    text-decoration: none;
+    /* text-orientation: upright; */
+    /* display: grid;
+    grid-template-columns: repeat(4,25%);
+    grid-template-rows: 100%; */
+    height: 100%;
+    z-index: 20;
+}
+
+#location__bar--h1-card{
     position: fixed;
     transform: rotate(-90deg);
     font-size: 250px;
 	top: 300px;
-    left: -100px;
+    left: -20rem;
     margin: auto;
 	align-self: start;
     opacity: .25;
+    white-space: nowrap;
 }

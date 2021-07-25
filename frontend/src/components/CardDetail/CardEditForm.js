@@ -30,7 +30,7 @@ const updateCard = async (e) => {
       imageUrl,
       description
     };
-      console.log(card, 'EDITED CARD')
+    
     if (editCardDeck) {
       const cardInfo = await dispatch(editCard(editCardDeck))
         if (cardInfo && cardInfo.errors) {

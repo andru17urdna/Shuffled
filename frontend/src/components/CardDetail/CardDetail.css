@@ -7,36 +7,76 @@
     display: grid;
     grid-template-columns: repeat(20, 5%);
     grid-template-rows: repeat(20, 40px);
+    overflow: hidden;
+    z-index: 1;
 }
 
-.background__container--div{
-
+.location__bar--Container-card{
+    height: 100%;
+    width: 50px;
+    /* grid-column:2 ;
+    grid-row: 1/ span end; */
+    border-top: solid transparent 1px;
+    border-bottom: solid transparent 1px;
+    font-family: Apex;
+    text-decoration: none;
+    /* text-orientation: upright; */
+    /* display: grid;
+    grid-template-columns: repeat(4,25%);
+    grid-template-rows: 100%; */
+    height: 100%;
 }
+
+.location__bar--h1-card{
+    position: fixed;
+    transform: rotate(-90deg);
+    font-size: 250px;
+	top: 300px;
+    left: -15rem;
+    margin: auto;
+	align-self: start;
+    opacity: .25;
+    white-space: nowrap;
+}
+
+
 
 .carddetail__border--div{
     border-top: white solid 1px;
     border-right: white solid 1px;
+    border-bottom: transparent solid 1px;
+    border-left: transparent solid 1px;
     grid-row: 2/ span end;
     grid-column: 2/ 18 ;
+    /* z-index:2; */
+    transition-duration: 1s;
+}
+
+.carddetail__container--div:hover .carddetail__border--div{
+    border-bottom: white solid 1px;
+    border-left: white solid 1px;
 }
 
 .carddetail__h2--animation-div{
-    grid-column: 2 / 13;
-    grid-row: 1 /span 3;
     font-size: 80px;
+    grid-column:12;
+    margin-bottom: 100px;
 }
 
 .carddetail__h2--animation{
     font-size: 80;
     color:black;
-    font-family:'Montserrat', sans-serif;
+    font-family: apex;
     opacity: .25;
     z-index: 1;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    white-space: nowrap;
 }
 
 .carddetail__container--div{
-    grid-column: 3 / 17;
-    grid-row: 2 /span end;
+    grid-column: 6 / 15;
+    grid-row: 2 /span 19;
     display: grid;
     grid-template-columns: repeat(20, 5%) ;
     grid-template-rows: repeat(20, 5%) ;
@@ -45,34 +85,46 @@
 }
 
 .carddetail__h2{
-    color: yellow;
+    color: gold;
     font-family:'Montserrat', sans-serif;
-    font-size: 50px;
+    font-size: 40px;
     grid-row: 3 /span end;
-    grid-column: 18/19;
+    grid-column: 18/20;
     z-index: 6;
     writing-mode: vertical-lr;
     text-orientation: upright;
     white-space: nowrap;
+    height: 500px;
+    overflow-y: auto;
 }
 
-.carddetail__navlink{
-    color:yellowgreen;
-
-    font-size: 30px;
-    grid-row:;
-    grid-column: ;
+.carddetail__h2::-webkit-scrollbar {
+    width: 10px;
 }
+
+.carddetail__h2.card__description::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.carddetail__h2.card__description::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+.carddetail__h2::-webkit-scrollbar-thumb:hover {
+    background: transparent;
+}
+
 
 .carddetail__h3{
-    font-size: 40px;
-
+    font-size: 20px;
+    grid-row: ;
+    grid-column: ;
 }
 
 .carddetail__h3--a{
     justify-self: center;
-    grid-row: 2/ span end;
-    grid-column: 1/ span end;
+    grid-row: 6/ span 3;
+    grid-column: 1;
 }
 
 .carddetail__img--div{
@@ -82,8 +134,9 @@
 }
 
 .carddetail__img{
-    height: 400px;
+    height: 300px;
     width: auto;
+    z-index: 5;
 }
 
 .carddetail__h2-address--div{
@@ -94,19 +147,16 @@
 .carddetail__store-h3--div{
 
     font-family:'Montserrat', sans-serif;
-    grid-row:3 / 6;
-    grid-column: 13 / 17;
-    display: grid;
-    grid-template-columns: repeat(10, 10%) ;
-    grid-template-rows: repeat(3, 33.33%) ;
+    grid-row:4 / 6;
+    grid-column: 14 / 17;
 }
 
 
 .carddetail__h3-username--div{
     font-family:'Montserrat', sans-serif;
-    grid-row: 15;
+    grid-row: 7;
     grid-column:14/ 17 ;
-    font-size: 25px;
+    font-size: 15px;
     color: white;
 }
 
@@ -119,32 +169,49 @@
     grid-column: 1/ span 4;
     font-size: 30px;
     color: white;
+
 }
 
 .carddetail__p-description--div{
-
-    grid-row: 7/ 17;
-    grid-column: 13 /17;
+    height: 200px;
+    grid-row: 10/ 14;
+    grid-column: 11 /17;
     overflow-y: auto;
-    font-size: 30px;
+    font-size: 15px;
     color:white;
+    overflow-y: auto;
+    align-self: start;
+    background-color: transparent;
+    opacity: .2;
+    z-index: 20;
+    transition-duration: 1s;
 }
+
+.carddetail__container--div:hover .carddetail__p-description--div{
+    opacity: 1;
+}
+
+
 
 .carddetail__p{
     font-family:'Montserrat', sans-serif;
+    border-top: white 1px solid;
+    border-right: white 1px solid;
 }
 
 .carddetail__ul--div{
-    grid-row: 13/ 17;
+    color: white;
+    grid-row: 15/ 20;
     grid-column: 3 / 12;
     overflow-y: auto;
-    background-color: gray;
+    background-color: transparent;
 }
 
 .addcomment-button{
     grid-row: 17/span 2;
-    grid-column: 10;
+    grid-column: 15;
     align-self: center;
+    background-color: red;
 }
 
 .carddetail__ul{

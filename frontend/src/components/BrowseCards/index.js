@@ -33,8 +33,8 @@ if(!cards){
 
   return (
     <div className='background--div'>
-    <div>
-      <h1 id='location__bar--Container'>CARDS</h1>
+    <div className='location__bar--Container'>
+      <h1 className='location__bar--h1'>CARDS</h1>
     </div>
     <div id='browsecard__div'>
             {cards && cards.map(card=>(

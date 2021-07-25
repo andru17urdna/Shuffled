@@ -36,7 +36,7 @@ router.post('/',
 router.put('/:id',
     // playingCardValidations.validateUpdate,
     asyncHandler(async function (req, res) {
-        const individualCard = await Card.findByPk(req.params.id);
+        const individualCard = await Card.findByPk(req.params.id, {include: {all: true}});
         const editedCard = await individualCard.update(req.body);
         return res.json(editedCard);
     })
