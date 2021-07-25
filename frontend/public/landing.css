@@ -1,0 +1,70 @@
+.body-container-div{
+    /* position: fixed; */
+    /* height: 4000px; */
+    /* width: 100%;
+    left:0;
+    top: 0; */
+
+}
+
+#root{
+    /* background-image: url(https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1234&q=80); */
+    /* background-image: url(https://www.toptal.com/designers/subtlepatterns/patterns/darkdenim3.png); */
+    /* background-size: cover; */
+    /* background-repeat:repeat-y; */
+    /* background-attachment: fixed; */
+    /* background-repeat: repeat; */
+    /* position: absolute; */
+    /* height: 100%;
+    width: 100%;
+    left:0;
+    top: 0; */
+
+
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(20, 5%) ;
+    grid-template-rows: 10rem repeat(10, 10%);
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+}
+body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+body::-webkit-scrollbar-thumb {
+    background: #888;
+}
+body::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+#nav__container-div{
+    grid-column: 1 /span end ;
+    grid-row: 1 /span 3;
+}
+
+#modal__container--div{
+    display: grid;
+    grid-template-columns: repeat(100, 1%);
+    grid-template-rows: repeat(5, 30px);
+    grid-column: 1 /span end;
+    grid-row: 1/ span 3;
+}
+
+#root__header-div{
+    grid-column: 1 /span 2;
+    grid-row: 1 /span 3;
+}
+
+#root__header{
+    color: white;
+}
+
+#sign-up__container{
+    grid-column: 1 ;
+    grid-row: 3 /span 3;
+    justify-self: end;
+    align-self: end;
+  }

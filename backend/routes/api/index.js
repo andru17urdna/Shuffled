@@ -4,28 +4,26 @@ const { setTokenCookie } = require('../../utils/auth.js');
 const { User } = require('../../db/models');
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
-
-
+const playingCardRouter = require('./cards.js');
+const storeRouter = require('./stores.js');
+const checkinRouter = require('./checkin');
 
 router.use('/session', sessionRouter);
 
 router.use('/users', usersRouter);
 
+router.use('/playingcards', playingCardRouter);
 
-// router.post('/test', function(req, res) {
-//     res.json({ requestBody: req.body });
-//   });
+router.use('/stores', storeRouter);
 
-// GET /api/set-token-cookie
-router.get('/set-token-cookie', asyncHandler(async (req, res) => {
-const user = await User.findOne({
-    where: {
-        username: 'Demo-lition'
-    },
-    })
-setTokenCookie(res, user);
-return res.json({ user });
-}));
+router.use('/checkin', checkinRouter);
+
+
+router.get('/test', function(req, res) {
+  res.cookie('XSRF-TOKEN', req.csrfToken());
+  res.send('Hello World!');
+});
+
 
 // GET /api/restore-user
 const { restoreUser } = require('../../utils/auth.js');

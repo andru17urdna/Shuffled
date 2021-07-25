@@ -1,0 +1,154 @@
+@keyframes buttonLoadHome {
+    from{
+        padding-top: 50px;
+    }
+    to {
+        padding-top: 0px;
+    }
+}
+
+@keyframes buttonLoadSign-up {
+    from{
+        padding-top: 150px;
+    }
+    to {
+        padding-top: 0px;
+    }
+}
+
+@keyframes buttonLoadLogin {
+    from{
+        padding-top: 75px;
+    }
+    to {
+        padding-top: 0px;
+    }
+}
+
+#nav__container-div{
+    position: fixed;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(100, 1%);
+    grid-template-rows: repeat(5, 30px);
+    z-index: 2;
+}
+
+@keyframes dropIn {
+    0%{padding-top: 80px; color: coral}
+    100%{padding-top: 0px; color:white;}
+}
+
+
+#nav__link-profile {
+    grid-column-start: 16;
+    grid-row: 2 / span 1;
+    animation: dropIn 1.5s;
+}
+
+#nav__browsecard{
+    grid-column-start: 19;
+    grid-row: 2 / span 1;
+}
+
+.profile-dropdown{
+    border-top: solid 1px white;
+    list-style: none;
+    grid-column: 7 /span 9;
+    grid-row: 2;
+    text-align: right;
+}
+
+.profile-dropdown__li{
+    color: white;
+    font-size: 18px;
+    border-right: solid 1px white;
+    padding-top:5px;
+    padding-right: 10px;
+    font-family: arial, sans-serif;
+    letter-spacing: 1px;
+}
+
+.profile-link{
+    transition-duration: 1s;
+    text-decoration: none;
+    color:white;
+}
+
+.profile-link:hover{
+    padding-right: 25px;
+    color: #ffd349;
+    cursor: pointer;
+}
+
+.profile-dropdown__li:active{
+    transition: padding-right;
+    padding-right: 30px;
+    color: lightslategray;
+}
+
+#profile-dropdown__log-out:hover::before{
+    content: '?  ';
+}
+
+
+.nav__link{
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    text-decoration: none;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    border-bottom: transparent;
+    border-left: transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    font-size: 20px;
+    transition-duration: 1s;
+    justify-self: start;
+    border-top: solid transparent 1px;
+    border-right:solid transparent 1px;
+}
+
+.profile-container-div{
+    grid-column: 75/ 95 ;
+    grid-row: 1/ 6;
+    display: grid;
+    grid-template-columns: repeat(20, 5%);
+    grid-template-rows: repeat(5, 30px);
+}
+
+.nav__link:hover{
+    padding-top: 15px;
+    border-top: solid white 1px;
+    border-right:solid white 1px;
+}
+
+.nav__link:active{
+    transition: color 0s;
+    color: lightslategray;
+    padding-top: 20px;
+    border-top: solid lightslategray 1px;
+    border-right: solid lightslategray 1px;
+}
+
+
+
+#nav_sign-up{
+    grid-column-start: 93;
+    grid-row: 2 / span 1;
+    animation: buttonLoadSign-up 1.5s;
+}
+
+
+
+#nav_home{
+    grid-column: 96 / span 1;
+    grid-row: 2 / span 1;
+    animation: buttonLoadHome 1.5s;
+}
+
+#nav__log-in-button{
+    grid-column-start: 90;
+    grid-row: 2 / span 1;
+    animation: buttonLoadLogin 1.5s;
+}

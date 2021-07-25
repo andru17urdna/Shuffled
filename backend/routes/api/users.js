@@ -11,11 +11,11 @@ const { User } = require('../../db/models');
     check('email')
       .exists({ checkFalsy: true })
       .isEmail()
-      .withMessage('Please provide a valid email.'),
+      .withMessage('Invalid email.'),
     check('username')
       .exists({ checkFalsy: true })
       .isLength({ min: 4 })
-      .withMessage('Please provide a username with at least 4 characters.'),
+      .withMessage('Username must be at least 4 characters.'),
     check('username')
       .not()
       .isEmail()
@@ -41,5 +41,7 @@ const { User } = require('../../db/models');
       });
     }),
   );
+
+
 
 module.exports = router;

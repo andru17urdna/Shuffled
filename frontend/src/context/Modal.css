@@ -1,24 +1,252 @@
+@keyframes modalGhostMovement {
+     0% {padding-left: 75px; opacity: 0;}
+    100%{padding-left:0px;}
+}
+
+
+
 #modal {
-    position: fixed;
-    top: 0;
+    /* top: 0;
     right: 0;
     left: 0;
-    bottom: 0;
-    display: flex;
+    bottom: 0; */
+    /* display: flex;
     justify-content: center;
-    align-items: center;
-  }
+    align-items: center; */
+    grid-column: 67;
+    grid-row: 2;
+    animation: modalGhostMovement 1.3s;
+}
 
-  #modal-background {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-  }
+    #modal-background {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      z-index: 2;
+    }
 
-  #modal-content {
-    position: absolute;
-    background-color:white;
-  }
+
+    .modal-form{
+      box-sizing: border-box;
+      position: relative;
+      z-index: 3;
+      border-top:white solid 1px;
+      border-right: white solid 1px;
+      border-left:transparent solid 1px;
+      border-bottom: transparent solid 1px;
+      display: grid;
+      transition-duration: 1s;
+    }
+
+    .modal-form:hover{
+      border-bottom: white solid 1px;
+      border-left: white solid 1px;
+    }
+
+    #modal__form--login{
+      grid-template-columns: 5% 5% repeat(7, 10%) repeat(4, 5%);
+      grid-template-rows: repeat(10, 10%) ;
+      width: 400px;
+      height: 200px;
+    }
+
+    #modal__form--signup{
+      width: 400px;
+      height: 300px;
+      grid-template-columns: repeat(2, 5%) repeat(6, 10%) repeat(6, 5%);
+      grid-template-rows: repeat(10, 10%);
+    }
+
+    .modal-button-border{
+      border-top: white solid 1px;
+      border-right: white solid 1px;
+    }
+
+    #demo-button-border{
+      grid-column: 11/13;
+      grid-row: 2 /span 1;
+    }
+
+    #login-button-border{
+      grid-column: 10/12;
+      grid-row: 9 /span 1;
+    }
+
+    .modal__input{
+      border: none;
+      outline: 0;
+      border-bottom: 1px solid white;
+      border-right: 1px solid white;
+      background-color: transparent;
+      box-shadow: none;
+      color: #ffd349;
+      font-size: 20px;
+    }
+
+    .modal__input:hover{
+      border-bottom: white solid 3px;
+    }
+
+    .modal__input:focus{
+      border-right:transparent;
+      border-bottom: #ffd349 solid 3px;
+    }
+
+    #modal__username-email--label{
+      font-size: 20px;
+      grid-column: 3 /span 6;
+      grid-row: 2;
+      color: white;
+      font-family: arial, sans-serif;
+      letter-spacing: 1px;
+      justify-self: center;
+    }
+
+    #modal__password--label{
+      font-size: 20px;
+      grid-column: 3 /span 6;
+      grid-row: 5;
+      color: white;
+      font-family: arial, sans-serif;
+      letter-spacing: 1px;
+    }
+
+
+    #modal__log-in-button{
+      grid-column: 11 /span 1;
+      grid-row: 9 /span 1;
+      justify-self: end;
+    }
+
+    #demo-login__button{
+      grid-column: 12 /span 1;
+      grid-row: 2 /span 1;
+      justify-self: end;
+    }
+
+    /* #border-div{
+      grid-column: 7 /span 3;
+      grid-row: 9 /span 1;
+      border-top: solid transparent 1px;
+      z-index: 2;
+    } */
+
+    .modal__button{
+      font-family: arial, sans-serif;
+      font-size: 20px;
+      padding-right: 10px;
+      padding-top: 5px;
+      color: white;
+      letter-spacing: 1px;
+      transition-duration: 1s;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .modal__button:hover{
+      padding-right: 25px;
+      color: #ffd349;
+    }
+
+    .modal__button:active{
+      transition: color 0s;
+      padding-right: 35px;
+      color: lightslategray;
+    }
+
+@keyframes error_ul-fadeIn {
+    0%{opacity: .3; color: red;}
+    75%{opacity:1; color: red;}
+    90%{color:red}
+    100%{color: red}
+}
+
+#error_ul{
+  grid-row: 8 /span end;
+  grid-column: 2 /span end;
+  list-style: none;
+  font-size: 15px;
+}
+
+.error_li{
+  color:red;
+  text-shadow: rgb(148, 1, 1) 1px 1px ;
+  font-family: arial, sans-serif;
+  animation: error_ul-fadeIn 1.2s;
+}
+
+
+.sign-up__label{
+  color: white;
+  font-size: 20px;
+  font-family: arial, sans-serif;
+}
+
+#modal-form__container-div{
+  grid-row: 1 /span end;
+  grid-column: 1;
+  display: grid;
+  width: 400px;
+  height: 300px;
+  grid-template-columns: repeat(2, 5%) repeat(6, 10%) repeat(6, 5%);
+  grid-template-rows: repeat(10, 10%);
+}
+
+#sign-up__label--email{
+  grid-column: 2;
+  grid-row: 2;
+}
+
+#sign-up__label--username{
+  grid-column: 2;
+ grid-row: 4;
+}
+
+#sign-up__label--password{
+  grid-column: 2;
+ grid-row: 6;
+}
+
+#sign-up__label--c-password{
+  grid-column: 2;
+ grid-row: 8;
+}
+
+#sign-up__label--button{
+ grid-column: 13;
+ grid-row: 9 /span 1;
+ align-self: center;
+ justify-self: end;
+}
+
+#error_ul-container-div{
+  padding-top: 5px;
+  grid-column: 9 /span 6;
+  grid-row: 1;
+  width: 120px;
+  height: 200px;
+}
+
+#sign-up-button-border{
+  grid-row: 9/ span 1;
+  grid-column: 12/14;
+}
+
+#signup__errors {
+  padding-top: 5px;
+  grid-column: 9 /span 6;
+  grid-row: 2;
+}
+
+#signup__errors > li{
+  padding-top: 5px;
+  color: red;
+  text-shadow: rgb(148, 1 ,1) 1px 1px ;
+  font-family: arial, sans-serif;
+  list-style: none;
+  animation: error_ul-fadeIn 1.2s;
+  /* background-image: url('https://e7.pngegg.com/pngimages/208/512/png-clipart-american-red-cross-international-red-cross-and-red-crescent-movement-the-red-cross-on-blood-white-text.png');
+  background-position:top */
+}
