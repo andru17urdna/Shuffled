@@ -8,8 +8,8 @@ import { editCheckin, destroyCheckin, createCheckins, getOneDeckCheckins } from 
 
     const CreateCheckinForm = () => {
 
-       const cardId = useParams();
-        
+       const {cardId} = useParams();
+
 
 
     const dispatch = useDispatch();
@@ -39,6 +39,7 @@ import { editCheckin, destroyCheckin, createCheckins, getOneDeckCheckins } from 
         }
 
         if (newComment) {
+            console.log(newComment)
             const createdComment = await dispatch(createCheckins(newComment))
                 if(createdComment && createdComment.errors) {
                     setErrors(createdComment.errors)

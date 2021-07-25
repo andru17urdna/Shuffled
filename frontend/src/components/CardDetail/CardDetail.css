@@ -50,7 +50,10 @@
     grid-column: 2/ 18 ;
     /* z-index:2; */
     transition-duration: 1s;
+
 }
+
+
 
 .carddetail__container--div:hover .carddetail__border--div{
     border-bottom: white solid 1px;
@@ -59,7 +62,7 @@
 
 .carddetail__h2--animation-div{
     font-size: 80px;
-    grid-column:12;
+    grid-column:13;
     margin-bottom: 100px;
 }
 
@@ -75,7 +78,7 @@
 }
 
 .carddetail__container--div{
-    grid-column: 6 / 15;
+    grid-column: 6 / 17;
     grid-row: 2 /span 19;
     display: grid;
     grid-template-columns: repeat(20, 5%) ;
@@ -85,7 +88,7 @@
 }
 
 .carddetail__h2{
-    color: gold;
+    color: white;
     font-family:'Montserrat', sans-serif;
     font-size: 40px;
     grid-row: 3 /span end;
@@ -202,9 +205,11 @@
 .carddetail__ul--div{
     color: white;
     grid-row: 15/ 20;
-    grid-column: 3 / 12;
+    grid-column: 3 / 10;
     overflow-y: auto;
     background-color: transparent;
+    border-top:white solid 1px ;
+    border-right:white solid 1px;
 }
 
 .addcomment-button{
@@ -226,4 +231,22 @@
     background-color: lightgoldenrodyellow;
     grid-row:;
     grid-column: ;
+}
+
+
+
+/* --------------------DECORATION------------- */
+
+.decoration__p-description{
+    font-size: 30px;
+    opacity: .4;
+    color: black;
+    font-family:'Montserrat', sans-serif;
+    font-weight: bold;
+
+}
+
+.decoration__p-div{
+    grid-row: 8;
+    grid-column: 5;
 }

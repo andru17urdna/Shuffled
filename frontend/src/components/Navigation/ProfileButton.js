@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
+  const history =useHistory();
   const [showMenu, setShowMenu] = useState(false);
 
   const openMenu = () => {
@@ -26,6 +29,7 @@ function ProfileButton({ user }) {
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
+    history.push(`/`);
   };
 
   return (
@@ -33,12 +37,10 @@ function ProfileButton({ user }) {
         <p className='nav__link' id='nav__link-profile' onClick={openMenu}>{user.username}</p>
       {showMenu && (
         <ul className="profile-dropdown">
-          <li className='profile-dropdown__li'>My Profile</li>
-          {/*  user.username*/}
-          <li className='profile-dropdown__li'>My Collection</li>
-          <li className='profile-dropdown__li'>Add Cards</li>
-          <li className='profile-dropdown__li'>Add Store</li>
-          {/*user.email */}
+          <li className='profile-dropdown__li'><Link className='profile-link'>My Profile</Link></li>
+          <li className='profile-dropdown__li'><Link className='profile-link' to='/browsecards'>My Collection</Link></li>
+          <li className='profile-dropdown__li'><Link className='profile-link' to='/addcard'>Add Cards</Link></li>
+          <li className='profile-dropdown__li'><Link>Add Store</Link></li>
           <li id='profile-dropdown__log-out' className='profile-dropdown__li' onClick={logout}>Log Out</li>
         </ul>
       )}

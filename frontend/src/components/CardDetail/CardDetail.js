@@ -50,6 +50,9 @@ const CardDetail = () => {
 
     return (
         <div className='background__container--div'>
+            <div className='decoration__p-div'>
+                <p className='decoration__p-description'>{card?.description}</p>
+            </div>
             <div className='carddetail__h2--animation-div'>
                 <h2 className='carddetail__h2--animation'>{card?.name}</h2>
             </div>
@@ -85,7 +88,7 @@ const CardDetail = () => {
                     </div>
                 </div>
                     <div className="addcomment-button">
-                        <Link exact to={`add-check-ins/${card?.id}`}>WORD</Link>
+                        <NavLink to={`/check-ins/${card?.id}`}>WORD</NavLink>
                     </div>
         {showCreationButtons && (
             <div className='carddetail__editcardform--div'>

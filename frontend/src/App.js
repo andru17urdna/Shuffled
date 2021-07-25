@@ -30,27 +30,37 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+
           <Route exact path='/'>
             <LandingPage />
           </Route>
+
           <Route path ='/browsecards'>
             <BrowseCards />
           </Route>
-          <Route path = '/onecard/:id'>
+
+          <Route exact path='/check-ins/:cardId'>
+            <CreateCheckinForm />
+          </Route>
+
+          <Route exact path = '/onecard/:id'>
             <CardDetail />
           </Route>
+
           <Route exact path='/addcard'>
               <CreateCardForm />
           </Route>
+
           <Route path='/browsestores'>
             <BrowseStores />
           </Route>
+
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route exact path='check-ins/:cardId'>
-            <Checkins />
-          </Route>
+
+
+
         </Switch>
       )}
     </>

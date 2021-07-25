@@ -12,7 +12,10 @@ function Navigation({ isLoaded }){
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <ProfileButton user={sessionUser} />
+      <div className='profile-container-div'>
+        <ProfileButton user={sessionUser} />
+        <NavLink className='nav__link' id='nav__browsecard' to="/browsecards">Cards</NavLink>
+      </div>
     );
   } else {
     sessionLinks = (
@@ -27,6 +30,7 @@ function Navigation({ isLoaded }){
   return (
     <div id="nav__container-div">
           <NavLink className='nav__link' id='nav_home' exact to="/">Home</NavLink>
+
           {isLoaded && sessionLinks}
     </div>
   );
