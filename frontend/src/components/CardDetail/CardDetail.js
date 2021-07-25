@@ -50,6 +50,7 @@ const CardDetail = () => {
 
     return (
         <div className='background__container--div'>
+            <div className='decoration__emoji'><p id='decoration__emoji-p'>♧♢♡♤ ♧♡♤♡♧♢ ♢♧♢♡♤ ♧♢♡♤♤</p></div>
             <div className='decoration__p-div'>
                 <p className='decoration__p-description'>{card?.description}</p>
             </div>
@@ -72,23 +73,24 @@ const CardDetail = () => {
                 </a>
             </div>
             <div className='carddetail__h3-username--div'>
-                <h3 className='carddetail__h3-username'>{card?.User?.username}</h3>
+                <h3 className='carddetail__h3-username'>{`Added by: ${card?.User?.username}`}</h3>
             </div>
             <div className='carddetail__p-description--div'>
             <p className='carddetail__p'>{card?.description}</p>
             </div>
+            <h3 id='comments'>Comments</h3>
                 <div className='carddetail__ul--div'>
                     <div className='carddetail__ul' >
                         {checkins && checkins.map(checkin => (
                             <div key={checkin?.id}>
-                                <p className='carddetail__li' key={checkin?.id} className='card__comment-li'>{checkin?.comment}</p>
+                                <p className='carddetail__li' key={checkin?.id} className='card__detail-li'>{checkin?.comment}</p>
                                 <EditCheckinForm checkin={checkin}/>
                             </div>
                                 ))}
                     </div>
                 </div>
                     <div className="addcomment-button">
-                        <NavLink to={`/check-ins/${card?.id}`}>WORD</NavLink>
+                        <button className="buttonaddcomment-button"><NavLink to={`/check-ins/${card?.id}`} className="addcomment-link">Add Comment</NavLink></button>
                     </div>
         {showCreationButtons && (
             <div className='carddetail__editcardform--div'>

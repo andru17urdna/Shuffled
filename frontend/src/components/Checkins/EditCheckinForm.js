@@ -55,25 +55,25 @@ const EditCheckinForm =({ checkin }) =>{
 
             return (
                 <section>
-                    <form>
-                          <div id='error_ul-container-div'>
+                    <form className='edit-form'>
+
+                          {!!errors.length &&(<div id='error_ul-container-div'>
                               <ul id='signup__errors'>
                               {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                               </ul>
-                          </div>
-                      <div>
+                          </div>)}
                           <input
+                                className='edit-input'
                               type="text"
-                              placeholder="Comment Limit 500 Characters"
+                              placeholder="Edit above comment"
                               min="0"
                               max="500"
                               required
                               value={comment}
                               onChange={editComment} />
-                      </div>
                       <div>
-                          <button onClick={updateCheckin}>Edit Comment</button>
-                          <button onClick={deleteCheckin}>Delete Comment</button>
+                          <button class='edit-buttons' onClick={updateCheckin}>🔍</button>
+                          <button class='edit-buttons' onClick={deleteCheckin}>⌫</button>
                       </div>
                     </form>
                 </section>

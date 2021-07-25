@@ -40,8 +40,8 @@ function ProfileButton({ user }) {
           <li className='profile-dropdown__li'><Link className='profile-link'>My Profile</Link></li>
           <li className='profile-dropdown__li'><Link className='profile-link' to='/browsecards'>My Collection</Link></li>
           <li className='profile-dropdown__li'><Link className='profile-link' to='/addcard'>Add Cards</Link></li>
-          <li className='profile-dropdown__li'><Link>Add Store</Link></li>
-          <li id='profile-dropdown__log-out' className='profile-dropdown__li' onClick={logout}>Log Out</li>
+          <li className='profile-dropdown__li'><Link className='profile-link'>Add Store</Link></li>
+          <li id='profile-dropdown__log-out' className='profile-dropdown__li profile-link' onClick={logout}>Log Out</li>
         </ul>
       )}
     </>

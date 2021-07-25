@@ -38,6 +38,8 @@ function LoginForm() {
             <li className='error_li' key={idx}>{error}</li>
           ))}
         </ul>
+        <div id='demo-button-border' className='modal-button-border'></div>
+        <div id='login-button-border' className='modal-button-border'></div>
         <label id='modal__username-email--label'>
           Username or Email
           <input

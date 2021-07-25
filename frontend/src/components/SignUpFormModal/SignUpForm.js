@@ -30,6 +30,7 @@ function SignupForm() {
 
   return (
     <form className='modal-form' id ='modal__form--signup' onSubmit={handleSubmit} >
+      <div className='modal-button-border' id='sign-up-button-border'></div>
       <div id='error_ul-container-div'>
         <ul id='signup__errors'>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}

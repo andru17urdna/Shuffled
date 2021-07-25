@@ -59,6 +59,21 @@
       grid-template-rows: repeat(10, 10%);
     }
 
+    .modal-button-border{
+      border-top: white solid 1px;
+      border-right: white solid 1px;
+    }
+
+    #demo-button-border{
+      grid-column: 11/13;
+      grid-row: 2 /span 1;
+    }
+
+    #login-button-border{
+      grid-column: 10/12;
+      grid-row: 9 /span 1;
+    }
+
     .modal__input{
       border: none;
       outline: 0;
@@ -66,7 +81,7 @@
       border-right: 1px solid white;
       background-color: transparent;
       box-shadow: none;
-      color:white;
+      color: #ffd349;
       font-size: 20px;
     }
 
@@ -76,7 +91,7 @@
 
     .modal__input:focus{
       border-right:transparent;
-      border-bottom: white solid 3px;
+      border-bottom: #ffd349 solid 3px;
     }
 
     #modal__username-email--label{
@@ -128,12 +143,11 @@
       transition-duration: 1s;
       white-space: nowrap;
       cursor: pointer;
-      border-top: solid white 1px;
-      border-right:solid white 1px;
     }
 
     .modal__button:hover{
       padding-right: 25px;
+      color: #ffd349;
     }
 
     .modal__button:active{
@@ -146,7 +160,7 @@
     0%{opacity: .3; color: red;}
     75%{opacity:1; color: red;}
     90%{color:red}
-    100%{color:white}
+    100%{color: red}
 }
 
 #error_ul{
@@ -157,7 +171,7 @@
 }
 
 .error_li{
-  color: white;
+  color:red;
   text-shadow: rgb(148, 1, 1) 1px 1px ;
   font-family: arial, sans-serif;
   animation: error_ul-fadeIn 1.2s;
@@ -202,7 +216,7 @@
 
 #sign-up__label--button{
  grid-column: 13;
- grid-row: 9 /span 2;
+ grid-row: 9 /span 1;
  align-self: center;
  justify-self: end;
 }
@@ -215,6 +229,11 @@
   height: 200px;
 }
 
+#sign-up-button-border{
+  grid-row: 9/ span 1;
+  grid-column: 12/14;
+}
+
 #signup__errors {
   padding-top: 5px;
   grid-column: 9 /span 6;
@@ -223,7 +242,7 @@
 
 #signup__errors > li{
   padding-top: 5px;
-  color: white;
+  color: red;
   text-shadow: rgb(148, 1 ,1) 1px 1px ;
   font-family: arial, sans-serif;
   list-style: none;

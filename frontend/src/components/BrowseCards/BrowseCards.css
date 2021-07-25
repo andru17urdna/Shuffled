@@ -15,6 +15,15 @@
 
 }
 
+.small-logo-div{
+ grid-row: 1;
+ grid-column: 7/ 14;
+}
+
+#small-logo{
+    padding-top: 20px;
+    height: 300px;
+}
 
 .location__bar--h1{
     position: fixed;
@@ -104,7 +113,7 @@
 
 
     .card__container-h2-div::-webkit-scrollbar {
-        width: 10px;
+        width: 0px;
     }
 
     .card__container-h2-div::-webkit-scrollbar-track {
@@ -123,7 +132,8 @@
     /* grid-column: 9;
     grid-row: 2; */
     padding-right: 65px;
-    color: gold;
+    color: #ffd349;
+    margin-bottom: 40px;
 }
 
 .card__image-navlink{

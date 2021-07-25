@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { getStores } from '../../store/store';
 import { getCheckins } from '../../store/checkin';
 import {createCard, getCards, editCard, getOneCard, destroyCard} from '../../store/card.js'
+import shuffledLogo from '../Landing Page/SHUFFLED Finished.png';
 import CreateCheckinForm from '../Checkins/AddCheckin';
 import './BrowseCards.css';
 
@@ -33,6 +34,9 @@ if(!cards){
 
   return (
     <div className='background--div'>
+      <div className='small-logo-div'>
+        <img id='small-logo' src={shuffledLogo}></img>
+      </div>
     <div className='location__bar--Container'>
       <h1 className='location__bar--h1'>CARDS</h1>
     </div>
