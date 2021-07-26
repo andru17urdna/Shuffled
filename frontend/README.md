@@ -1,15 +1,16 @@
-# Shuffled | [Live](https://shuffled.herokuapp.com/)
+# Shuffled
+Checkout the live website: [Live](https://shuffled.herokuapp.com/)
 
 **A clone of untapped build on React Redux**
 
-## Key Features
+## MVPS
 
 * Browse cards that have been added by other users and yourself
 * Add comments and reviews
 
 
 
-## Future Direction and Feature Implementation
+## Future of Shuffled
 
 * CSS Finiliazation
 * Dynamic page for different viewports
