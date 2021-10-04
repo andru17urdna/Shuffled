@@ -24,7 +24,7 @@ const CreateCardForm = () => {
 
 
 
-  // console.log(stores, 'STORES');
+  console.log(stores, 'STORES');
 
 
   const [storeId, setStoreId] = useState(stores[0]?.title);
